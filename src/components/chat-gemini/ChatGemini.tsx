@@ -89,7 +89,7 @@ const ChatGemini = ({ despesas }: { despesas: any[] }) => {
           <S.ChatHeader>
             <span>Conselheiro Financeiro</span>
 
-            <IoIosCloseCircle onClick={toggleChat} size={24} />
+            <S.ChatCloseIcon onClick={toggleChat} />
           </S.ChatHeader>
 
           <S.ChatBody>

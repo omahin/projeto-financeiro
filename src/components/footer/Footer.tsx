@@ -5,7 +5,7 @@ import { StyledFooter } from './styles'
 const Footer = () => {
   return (
     <StyledFooter>
-      Desenvolvido com 🤍 por Olga Mahin!
+      Desenvolvido com 🤍 por Amanda Silva!
     </StyledFooter>
   );
 };
