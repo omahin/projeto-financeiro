@@ -12,7 +12,7 @@ const GraficoDespesas = () => {
   useEffect(() => {
     const fetchDespesas = async () => {
       try {
-        const response = await http.get('/'); // Rota do backend
+        const response = await http.get('https://back-end-financeiro.onrender.com/despesas/W7AABqLwfVXz0YfmFgTbiC66Vmn2'); // Rota do backend
         setDespesas(response.data);
       } catch (error) {
         console.error('Erro ao buscar as despesas:', error);
