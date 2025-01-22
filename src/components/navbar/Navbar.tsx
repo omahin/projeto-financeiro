@@ -37,6 +37,7 @@ const Navbar = () => {
       {user && <NavLink to="/">Home</NavLink>}
       {user && <NavLink to="/criar-despesas">Criar Despesas</NavLink>}
       {user && <NavLink to="/dashboard">Dashboard</NavLink>}
+      {user && <NavLink to="/grafico">Gráfico de Despesas</NavLink>}
 
       {user ? (
         <S.ProfileContainer>
@@ -49,7 +50,7 @@ const Navbar = () => {
           </S.LogoutButton>
         </S.ProfileContainer>
       ) : (
-        <S.LogintButton onClick={signWithGoogle}>Login</S.LogintButton>
+        <S.LoginButton onClick={signWithGoogle}>Login</S.LoginButton>
       )}
     </S.StyledNavbar>
   );

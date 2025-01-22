@@ -76,7 +76,7 @@ export const LogoutButton = styled.button`
   }
 `;
 
-export const LogintButton = styled.button`
+export const LoginButton = styled.button`
   background-color: #d1b3ff;
   padding: 8px;
   border-radius: 16px;
