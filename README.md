@@ -1,6 +1,6 @@
-# Controle de Gastos com Gemini - Aprofunda Pretalab
+# Controle de Gastos com Gemini - Aprofunda Pretalab💜
 
-## **Descrição**
+## 📄 **Descrição**
 
 Uma plataforma intuitiva para controle de gastos e alcance de metas financeiras. Com funcionalidades como upload de notas fiscais, gráficos interativos e histórico detalhado, o sistema ajuda você a organizar suas finanças de forma eficiente.
 
@@ -9,7 +9,7 @@ Uma plataforma intuitiva para controle de gastos e alcance de metas financeiras.
 - **Histórico detalhado:** Acompanhe todas as suas transações.
 - **Conselhos financeiros:** Receba dicas personalizadas para melhorar suas finanças.
 
-## Como funciona
+## ⚙️ Como funciona
 
 1. **Tenha uma nota em PDF:** Tenha um arquivo salvo na sua máquina: sua nota fiscal.
 2. **Faça o upload:** Envie o arquivo para a plataforma. O sistema usa a API de OCR para processar os dados.
@@ -26,7 +26,7 @@ Uma plataforma intuitiva para controle de gastos e alcance de metas financeiras.
 - **Interatividade:** Clique em categorias na legenda para exibir/ocultar dados no gráfico.
 
 
-## ✔️ Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 ### Frontend
 
@@ -147,6 +147,6 @@ Estrutura de Arquivos
    
 3. Adicionar suporte para exportação dos gráficos como imagem.
 
- ## Contribuições
+ ## 💪🏽 Contribuições
 
  Fique à vontade para abrir issues e enviar pull requests com sugestões ou melhorias😊
