@@ -1,6 +1,8 @@
 # Controle de Gastos com Gemini - Aprofunda Pretalab
 
-Uma plataforma intuitiva para você controlar seus gastos e alcançar suas metas financeiras. Com o [Nome da sua aplicação], você pode:
+## **Descrição**
+
+Uma plataforma intuitiva para controle de gastos e alcance de metas financeiras. Com funcionalidades como upload de notas fiscais, gráficos interativos e histórico detalhado, o sistema ajuda você a organizar suas finanças de forma eficiente.
 
 - **Upload de notas fiscais:** Tire uma foto da sua nota e deixe que a nossa ferramenta faça o resto.
 - **Dashboard personalizado:** Visualize seus gastos de forma clara e organizada.
@@ -10,8 +12,8 @@ Uma plataforma intuitiva para você controlar seus gastos e alcançar suas metas
 ## Como funciona
 
 1. **Tenha uma nota em PDF:** Tenha um arquivo salvo na sua máquina: sua nota fiscal.
-2. **Faça o upload:** Envie o arquivo para a plataforma.
-3. **Acompanhe seus gastos:** Veja seus gastos atualizados em tempo real no dashboard.
+2. **Faça o upload:** Envie o arquivo para a plataforma. O sistema usa a API de OCR para processar os dados.
+3. **Acompanhe seus gastos:** Veja seus gastos categorizados e atualizados em tempo real no dashboard.
 
 ## 🔨 Funcionalidades
 
@@ -20,37 +22,61 @@ Uma plataforma intuitiva para você controlar seus gastos e alcançar suas metas
 - **Atualização Automática do Dashboard**: Adiciona o valor reconhecido ao controle financeiro, exibindo o total no dashboard.
 - **Histórico de Transações**: Exibe o histórico de gastos com detalhes de data, valor e categoria.
 - **Autenticação de Usuário**: Para que cada usuário tenha um dashboard personalizado.
+- **Tooltips informativas:** Exibem valores totais e percentuais de categorias no gráfico.
+- **Interatividade:** Clique em categorias na legenda para exibir/ocultar dados no gráfico.
+
 
 ## ✔️ Tecnologias Utilizadas
 
 ### Frontend
 
-- **Frontend:** React, Vite, Styled Components
-- **Backend:** Node.js, Express, Firebase
+- **React**: Interface do usuário.
+- **Chart.js**: Visualização de gráficos.
+- **Styled Components**: Estilização personalizada.
 - **OCR:** Google Vision API
+
+### **Backend**
+- **Node.js** + **Express**: Lógica do servidor.
+- **Google Vision API**: Extração de texto das notas fiscais.
+- **Firebase Firestore**: Banco de dados para transações.
 
 ### Infraestrutura e Deploy
 
 - **Google Cloud Platform (GCP)**
   - **Google Cloud Functions** para processamento assíncrono de imagens
   - **Google Cloud Storage** para armazenar imagens enviadas
-  - **Firestore** para banco de dados de transações
 
-##
+## 🆕 **Alterações Recentes**
 
-## Instalação
+### **1. Interatividade Aprimorada**
+- Clique na legenda para exibir/ocultar categorias nos gráficos.
+- Tooltips personalizadas com valores e percentuais.
+
+### **2. Melhorias de Responsividade**
+- Gráficos adaptáveis a diferentes tamanhos de tela usando `maintainAspectRatio: false`.
+
+### **3. Paleta de Cores Personalizada**
+- Definida uma paleta consistente com opacidade ajustável.
+
+
+## Instalação e configuração
 
 1. Clone o repositório:
 
    ```bash
-   git clone [https://github.com/seuusuario/plataforma-gerenciamento-gastos.git](https://github.com/seuusuario/plataforma-gerenciamento-gastos.git)
+   git clone https://github.com/seu-usuario/projeto-financeiro.git
 
    ```
 
 2. Acesse o projeto e instale as dependências:
    ```bash
-   cd plataforma-gerenciamento-gastos
+   cd ProjetoFinanceiro/controle-gastos
    npm install
+   ```
+
+3. Execute o prrojeto:
+   ```bash
+   npm run dev
    ```
 
 Estrutura de Arquivos
@@ -76,19 +102,7 @@ Estrutura de Arquivos
 └── README.md
 ```
 
-## Instalação e Configuração
-
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seuusuario/plataforma-gerenciamento-gastos.git
-   ```
-
-```sh
-   npm install
-```
-
-## Critérios de Aceite
+## ✅ Critérios de Aceite
 
 1. Autenticação e Autorização de Usuário
    Dado que uma usuária tenta acessar o sistema,
@@ -124,3 +138,15 @@ Estrutura de Arquivos
    Dado que uma transação foi adicionada com sucesso,
    Quando o sistema armazena o valor e os detalhes no banco de dados,
    Então esses dados devem ser persistidos no histórico, permitindo recuperação futura mesmo após logout ou atualização do sistema.
+
+## 🔜 Melhorias Futuras
+
+1. Adicionar suporte a novos tipos de gráfico, como linha e pizza.
+
+2. Implementar filtro de categorias diretamente na interface.
+   
+3. Adicionar suporte para exportação dos gráficos como imagem.
+
+ ## Contribuições
+
+ Fique à vontade para abrir issues e enviar pull requests com sugestões ou melhorias😊
