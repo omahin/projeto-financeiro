@@ -4,6 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Colors } from 'chart.js';
 import http from '../http'; // Importando a instância do axios
 import { _DeepPartialObject } from 'chart.js/dist/types/utils';
+import { useRef } from 'react';
 
 ChartJS.register(
   CategoryScale,
@@ -20,8 +21,8 @@ ChartJS.register(
 const GraficoDespesas = () => {
   const [despesas, setDespesas] = useState<any[]>([]);
   const [tipoGrafico, setTipoGrafico] = useState<'Bar' | 'PolarArea'>('Bar'); // Estado para alternar gráficos
+  const chartRef = useRef<any>(null);
 
-  // Paleta de cores para as categorias
   const palette = [
     'rgba(187, 104, 238, 0.5)', 
     'rgba(75, 192, 192, 0.5)', 
@@ -134,6 +135,7 @@ const GraficoDespesas = () => {
         },
       },
     },
+   
     scales: {
       x: {
         grid: {
@@ -164,9 +166,42 @@ const GraficoDespesas = () => {
     },
   };
 
+  const graficDownload = () => {
+    if (chartRef.current) {
+      const chartInstance = chartRef.current.chartInstance || chartRef.current;
+      const canvas = chartInstance.canvas;
+  
+      // Cria um canvas temporário
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+  
+      // Define o tamanho do canvas temporário com base no canvas original
+      tempCanvas.width = canvas.width + 100;
+      tempCanvas.height = canvas.height + 100;
+  
+      if (tempCtx) {
+        // Preenche o fundo com branco
+        tempCtx.fillStyle = '#ffffff';
+        tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+    
+        // Desenha o gráfico original sobre o fundo branco
+        tempCtx.drawImage(canvas, 50, 50);
+    
+        // Gera a URL da imagem do canvas temporário
+        const url = tempCanvas.toDataURL('image/png');
+    
+        // Cria um link para download
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'grafico-despesas.png';
+        link.click();
+      }
+    }
+  };
+
   return (
-    <div style={{ height: '600px', width: '80%', margin: '0 auto' }}>
-      <h1 style={{ textAlign: 'center', padding: '30px 0', color: '#4B0082', fontFamily: 'Italiana, serif' }}>Gráfico de Despesas</h1>
+    <div style={{ height: '500px', width: '80%', margin: '0 auto' }}>
+      <h1 style={{ textAlign: 'center', padding: '40px 0', color: '#4B0082', fontFamily: 'Italiana, serif' }}>Gráfico de Despesas</h1>
 
       {/* Botões para alternar entre os gráficos */}
       <div style={{ textAlign: 'center', marginBottom: '30px' }}>
@@ -200,11 +235,26 @@ const GraficoDespesas = () => {
         </button>
       </div>
 
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <button
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#8e44ad',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '5px',
+          }}
+          onClick={graficDownload}
+        >
+          Baixar Gráfico
+        </button>
+      </div>
+
       {/* Renderização condicional do gráfico */}
       {tipoGrafico === 'Bar' ? (
-        <Bar data={data} options={options} />
+        <Bar ref={chartRef} data={data} options={options} />
       ) : (
-        <PolarArea data={data} options={{ ...options, scales: {} as any } as any} /> // Remove as escalas no Polar Area
+        <PolarArea ref={chartRef} data={data} options={{ ...options, scales: {} as any } as any} /> // Remove as escalas no Polar Area
       )}
     </div>
   );
