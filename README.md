@@ -58,6 +58,8 @@ Uma plataforma intuitiva para controle de gastos e alcance de metas financeiras.
 ### **3. Paleta de Cores Personalizada**
 - Definida uma paleta consistente com opacidade ajustável.
 
+### **4. Download dos Gráficos**
+- Adicionado suporte para download dos gráficos como imagem.
 
 ## Instalação e configuração
 
@@ -145,8 +147,6 @@ Estrutura de Arquivos
 
 2. Implementar filtro de categorias diretamente na interface.
    
-3. Adicionar suporte para exportação dos gráficos como imagem.
-
  ## 💪🏽 Contribuições
 
  Fique à vontade para abrir issues e enviar pull requests com sugestões ou melhorias😊
